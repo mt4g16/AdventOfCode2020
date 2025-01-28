@@ -6,8 +6,11 @@ data = {
         'XXXXXXXXX001',
         'XXXXXXXXX002',
         'XXXXXXXXX003',
+        'XXXXXXXXX002',
         'YYYYYYYYY001',
         'YYYYYYYYY002',
+        'YYYYYYYYY001',
+        'ZZZZZZZZZ001',
         'ZZZZZZZZZ001'
     ]
 }
@@ -21,8 +24,8 @@ for item in df['itemName']:
     prefix = item[:9]
     suffix = item[9:]
     if prefix not in grouped_items:
-        grouped_items[prefix] = []
-    grouped_items[prefix].append(suffix)
+        grouped_items[prefix] = set()
+    grouped_items[prefix].add(suffix)
 
 # Construct new item names
 new_item_names = []
